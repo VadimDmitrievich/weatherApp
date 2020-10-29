@@ -8,7 +8,7 @@ button.addEventListener('click', function () {
   fetch(
     'https://api.openweathermap.org/data/2.5/weather?q=' +
       inputValue.value +
-      '&appid=8cb5c34ee8f8731976267741851be551'
+      '&units=metric&appid=8cb5c34ee8f8731976267741851be551'
   )
     .then((response) => response.json())
     .then((data) => {
@@ -17,9 +17,9 @@ button.addEventListener('click', function () {
       var tempValue = data['main']['temp']
       var descValue = data['weather'][0]['description']
 
-      name.innerHTML = nameValue
-      temp.innerHTML = tempValue
-      desc.innerHTML = descValue
+      name.innerHTML = `In the city ${nameValue}`
+      temp.innerHTML = `Temperature is ${tempValue} °`
+      desc.innerHTML = `with ${descValue}`
     })
 
     .catch((err) => alert('Wrong city name'))
