@@ -5,12 +5,24 @@
   font-family: 'Nunito', sans-serif;
 }
 
-/* body {
-} */
+body {
+  display: flexbox;
+  justify-content: center;
+}
+
+.topBox {
+  text-align: center;
+  margin: 5vh 5vh;
+  max-width: 500px;
+  max-height: 500px;
+  display: grid;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+}
 
 .input {
   text-align: center;
-  margin: 10vh;
+  margin: 5vh;
 }
 
 input[type='text'] {
