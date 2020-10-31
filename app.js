@@ -1,9 +1,13 @@
 var button = document.querySelector('.button')
 var inputValue = document.querySelector('.inputValue')
-var desc = document.querySelector('.desc')
+var city = document.querySelector('.city')
 var temp = document.querySelector('.temp')
+var avTemp = document.querySelector('.avTemp')
+var maxTemp = document.querySelector('.maxTemp')
 
 button.addEventListener('click', function () {
+  city.innerHTML = `Yaroslavl, Russia`
+
   fetch(
     'https://api.openweathermap.org/data/2.5/weather?q=Yaroslavl&units=metric&appid=8cb5c34ee8f8731976267741851be551'
   )
@@ -12,13 +16,15 @@ button.addEventListener('click', function () {
       console.log(data)
       var tempValue = data['main']['temp']
 
-      temp.innerHTML = `Temperature is ${tempValue} °`
+      temp.innerHTML = `${tempValue} °c`
     })
 
     .catch((err) => alert('Wrong city name'))
 
-  //можно записывать максимальную в переменную
-  //ссуммировать среднюю и разделить на кол-во sum/array.length ++
+  // 'https://api.openweathermap.org/data/2.5/forecast?q=Yaroslavl&units=metric&appid=8cb5c34ee8f8731976267741851be551' - 5 days
+
+  // 'https://api.openweathermap.org/data/2.5/forecast/daily?q=Yaroslavl&cnt=5&units=metric&appid=8cb5c34ee8f8731976267741851be551' - 16 days
+
   fetch(
     'https://api.openweathermap.org/data/2.5/forecast?q=Yaroslavl&units=metric&appid=8cb5c34ee8f8731976267741851be551'
   )
@@ -27,26 +33,19 @@ button.addEventListener('click', function () {
       console.log(data)
       var tempList = data['list']
       var sum = 0
+      var tempMax = data['list'][0]['main']['temp_max']
 
       console.log(tempList)
 
       for (var temp in tempList) {
         sum += data['list'][temp]['main']['temp']
-        // console.log(temp)
+        if (data['list'][temp]['main']['temp_max'] > tempMax) {
+          tempMax = data['list'][temp]['main']['temp_max']
+        }
       }
-      // console.log(sum)
-      // console.log(tempList.length)
       sum = (sum / tempList.length).toFixed(2)
 
-      //console.log(data['list'][temp]['main']['temp']['morn'])
-
-      // for MORN
-      // var maxArray = []
-
-      // for (var maxTemp in tempList) {
-      //   maxArray.push(data['list'][maxTemp]['main']['temp_max'])
-      // }
-      // console.log(maxArray)
-      desc.innerHTML = `Avarage temperature for 5 days is ${sum} °`
+      avTemp.innerHTML = `Avarage temperature for 5 days is ${sum} °c`
+      maxTemp.innerHTML = `Max temperature for 5 days is ${tempMax} °c`
     })
 })

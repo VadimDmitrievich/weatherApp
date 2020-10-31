@@ -7,23 +7,32 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="topBox">
-      <h1>
-        If u want to check weather in Yaroslavl and check 'morn' click THAT
-        button
-      </h1>
+    <div class="appWrap">
+      <header>
+        <div class="topBox">
+          <h1>
+            If u want to check weather in my city<br />
+            <i>(or to check 'max')</i><br />
+            click <u>THAT</u> button
+          </h1>
 
-      <div class="input">
-        <input type="submit" value="THAT" class="button" />
-      </div>
+          <div class="input">
+            <input type="submit" value="THAT" class="button" />
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section>
+          <div class="city"></div>
+          <div class="tempBox">
+            <div class="temp"></div>
+            <div class="avTemp"></div>
+          </div>
+          <div class="maxTemp"></div>
+        </section>
+      </main>
     </div>
-
-    <div class="display">
-      <h1 class="name"></h1>
-      <p class="temp"></p>
-      <p class="desc"></p>
-    </div>
-
     <script src="app.js"></script>
   </body>
 </html>

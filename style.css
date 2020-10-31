@@ -1,50 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Montserrat:wght@100&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
 }
 
 body {
-  display: flexbox;
+  background-color: rgba(1, 1, 1, 0.2);
+}
+
+.appWrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  color: #df8e00;
+  font-family: 'Architects Daughter', cursive;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 10vh 25vw 0 25vw;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 50%);
+  border-radius: 10px;
 }
 
 .topBox {
   text-align: center;
-  margin: 5vh 5vh;
-  max-width: 500px;
-  max-height: 500px;
-  display: grid;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.2);
+  padding: 5%;
+  border-bottom: 3px solid #df8e00;
 }
 
-.input {
-  text-align: center;
-  margin: 5vh;
+.topBox i {
+  color: wheat;
 }
 
-input[type='text'] {
-  height: 50px;
-  width: 600px;
-  background: #e7e7e7;
+.button {
+  font-family: 'Architects Daughter', cursive;
   font-weight: bold;
   font-size: 20px;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-}
-
-input[type='submit'] {
+  border-radius: 16px 0px 16px 0px;
+  border-color: #df8e00;
   height: 50px;
-  width: 100px;
-  background: #e7e7e7;
-  font-size: 20px;
-  border: none;
-  border-radius: 4px;
+  width: 200px;
+  transition: 0.5s ease-out;
 }
 
-.display {
+main {
+  border-radius: 10px;
+  border-top: 3px solid #df8e00;
+  font-family: 'Montserrat', sans-serif;
+  flex: 1 1 100%;
+  margin: 5vh 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 50%);
+}
+
+main {
+}
+
+section .city {
+  color: white;
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+section .temp {
+  color: wheat;
+  font-size: 102px;
+  font-weight: 600;
+}
+
+section .avTemp {
+  color: white;
+  font-size: 25px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+section .maxTemp {
+  color: white;
+  font-size: 25px;
+  margin-bottom: 5px;
+  text-decoration: underline;
 }
