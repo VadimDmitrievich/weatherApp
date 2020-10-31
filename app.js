@@ -35,8 +35,6 @@ button.addEventListener('click', function () {
       var sum = 0
       var tempMax = data['list'][0]['main']['temp_max']
 
-      console.log(tempList)
-
       for (var temp in tempList) {
         sum += data['list'][temp]['main']['temp']
         if (data['list'][temp]['main']['temp_max'] > tempMax) {
